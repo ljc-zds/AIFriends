@@ -23,4 +23,15 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  server: {
+    proxy: {
+      // 将所有以 /api 开头的请求转发到后端服务器
+      '/api': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true,
+        // 如果后端接口没有 /api 前缀，可以重写路径
+        // rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  }
 })

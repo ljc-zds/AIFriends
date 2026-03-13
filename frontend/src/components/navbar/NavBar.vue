@@ -41,7 +41,7 @@ const user = useUserStore()
         <RouterLink v-if="user.hasPulledUserInfo && !user.isLogin()" :to="{name: 'user-account-login-index'}" active-class="btn-active" class="btn btn-ghost">
           登录
         </RouterLink>
-        <UserMenu v-else-if = 'user.isLogin()'/>
+        <UserMenu v-else-if = 'user.isLogin() && user.id'/>
       </div>
     </nav>
     <slot></slot>

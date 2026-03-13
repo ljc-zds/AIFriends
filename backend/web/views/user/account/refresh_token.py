@@ -23,7 +23,7 @@ class RefreshTokenView(APIView):
                     key='refresh_token',
                     value=str(refresh),
                     httponly=True,
-                    samesite='Lax',
+                    samesite='None',
                     secure=True,
                     max_age=86400 * 7,
                 )
@@ -32,6 +32,8 @@ class RefreshTokenView(APIView):
                 'result': 'success',
             })
         except:
+            import traceback
+            print(traceback.format_exc())
             return Response({
                 'result': "refresh token过期了"
             },status=401)

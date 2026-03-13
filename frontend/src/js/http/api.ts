@@ -75,6 +75,7 @@ api.interceptors.response.use(
                         user.setAccessToken(res.data.access)
                         onRefreshed(res.data.access)
                     }).catch(error => {
+                        console.log(error)
                         user.logout()
                         onRefreshFailed(error)
                         reject(error)

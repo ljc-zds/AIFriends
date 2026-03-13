@@ -36,6 +36,7 @@ class UpdateProfileView(APIView):
             user_profile.update_time = now()
             user.username = username
             user.save()
+            user_profile.save()
             return Response({
                 'result': 'success',
                 'user_id': user.id,

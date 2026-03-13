@@ -31,7 +31,7 @@ class LoginView(APIView):
                     key='refresh_token',
                     value=str(refresh),
                     httponly=True,
-                    samesite='Lax',
+                    samesite='None',
                     secure=True,
                     max_age=86400 * 7,
                 )
